@@ -1,6 +1,4 @@
 import { IsString, MinLength } from 'class-validator';
-import { User } from '../entities/user.entity';
-import { Role } from 'src/modules/acl/entities/role.entity';
 
 export class RegisterDTO {
   @IsString()

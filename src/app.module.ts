@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { RegisterModule } from './modules/register/register.module';
-import { User } from './modules/register/entities/user.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { AclModule } from './modules/acl/acl.module';
 

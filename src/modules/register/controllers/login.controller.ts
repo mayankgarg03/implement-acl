@@ -1,7 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { LoginDTO } from '../dto/register.dto';
 import { RegisterService } from '../register.service';
-import { JwtService } from '@nestjs/jwt';
 
 @Controller('login')
 export class LoginController {

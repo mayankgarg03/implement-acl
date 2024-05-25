@@ -9,7 +9,6 @@ export class LoginController {
 
   @Post()
   async login(@Body() body: LoginDTO) {
-    console.log('at login controller ', body);
     const user = await this.registerService.loginUser(body);
     return user;
   }

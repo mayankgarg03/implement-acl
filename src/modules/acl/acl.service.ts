@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { EntityManager, Repository } from 'typeorm';
 import { Role } from './entities/role.entity';
-import { Permission } from './entities/permission.entity';
 
 @Injectable()
 export class AclService {

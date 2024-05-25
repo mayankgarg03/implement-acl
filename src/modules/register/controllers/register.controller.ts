@@ -8,8 +8,11 @@ export class RegisterController {
 
   @Post()
   async register(@Body() body: RegisterDTO) {
-    console.log('at register controller ', body);
-    const createdUser = await this.registerService.createUser(body);
-    return createdUser;
+    try {
+      const createdUser = await this.registerService.createUser(body);
+      return createdUser;
+    } catch (error) {
+      throw error;
+    }
   }
 }

@@ -28,13 +28,10 @@ export class RegisterService {
   async createUser(user: RegisterDTO) {
     try {
       const role: any = await this.aclService.findRole(user.role);
-      console.log('.... ', role);
 
       if (!role) {
         throw new HttpException('Role not found', HttpStatus.NOT_FOUND);
       }
-      //   const newUser = new User();
-      //   newUser.role = role;
       const userEntity: User = this.toUserEntity(user, role);
       const createdUser = this.userRepository.create(userEntity);
       this.userRepository.save(createdUser);
@@ -53,7 +50,15 @@ export class RegisterService {
           password: password,
         },
       });
+
+      if (!userExist) {
+        throw new HttpException('User not found', HttpStatus.NOT_FOUND);
+      }
+
       const role: any = await this.aclService.findRoleById(userExist.roleId);
+      if (!role) {
+        throw new HttpException('User Role not found', HttpStatus.NOT_FOUND);
+      }
       const permission: any = await this.aclService.findPermissionByRoleId(
         userExist.roleId,
       );
